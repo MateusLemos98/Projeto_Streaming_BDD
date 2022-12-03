@@ -39,3 +39,23 @@ SELECT COUNT(*) FROM DBO.RESIDENCIA;
 SELECT COUNT(*) FROM DBO.SERVICO;
 
 SELECT COUNT(*) FROM DBO.TELEFONE;
+
+--3. Informar quantos valores distintos existem para a tabela funcionario na coluna TELEFONE
+SELECT COUNT(T.QTD) QTD_APENAS1 FROM (
+	SELECT TELEFONE, COUNT(*) QTD FROM FUNCIONARIO GROUP BY TELEFONE
+) AS T
+
+--4. Listar os 5 funcionarios de maior salario;
+SELECT TOP 5 * FROM FUNCIONARIO ORDER BY SALARIO DESC;
+
+--5. Listar os 5 funcionarios de menor salario;
+SELECT TOP 5 * FROM FUNCIONARIO ORDER BY SALARIO ASC;
+
+--6. Listar os funcionários ordenados pelo nome;
+SELECT * FROM FUNCIONARIO ORDER BY NOME ASC;
+
+--7.  Selecionar quais valores distintos existem para a tabela cliente na coluna genero;
+SELECT DISTINCT GENERO FROM CLIENTE; 
+
+--8. Selecionar quais valores distintos existem para a tabela conteudo na coluna tipo;
+SELECT DISTINCT TIPO FROM CONTEUDO;
